@@ -9,8 +9,11 @@ public class BowlingGame {
 	/** BowlingGame Score calculator constructor which require string as input 
 	 * @param game Expected format "[n,n][n,n]..[n,n]"
 	 * 
-	 */	 
-	public BowlingGame(String game) {	
+	 */	
+	
+	private String game;
+	public BowlingGame(String game) {
+		
 		//TODO: create constructor for BowlingGame
 	}
 	
@@ -22,5 +25,7 @@ public class BowlingGame {
 		//TODO: calculate the score of game and return correct value
 		return(-1);
 	}
-	
+	public boolean isValid() {
+		return true;
+	}
 }

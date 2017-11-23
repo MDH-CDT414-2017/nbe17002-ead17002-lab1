@@ -10,6 +10,10 @@ public class BowlingGameTest extends TestCase {
         assertEquals(-1, bowlingGame.getScore());
     }	
 	
+	public void testIsValid() {
+		
+	}
+	
 	//TODO: Add more test cases below...
 	
 }
