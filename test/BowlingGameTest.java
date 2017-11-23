@@ -35,7 +35,7 @@ public class BowlingGameTest extends TestCase {
 		//Game finishing with a strike but no bonus!
 		assertFalse("Error, a game finishing with a strike should have a bonus score!",bowlingGame.isValid());
 		
-		bowlingGame = new BowlingGame("[3,2][5,2][1,2][5,3][4,2][2,3][8,1][1,2][3,2][10,0],[9]");
+		bowlingGame = new BowlingGame("[3,2][5,2][1,2][5,3][4,2][2,3][8,1][1,2][3,2][10,0][9]");
 		//Game finishing with a strike but only 1 bonus!
 		assertFalse("Error, a game finishing with a strike should have 2 bonus instead of 1!",bowlingGame.isValid());
 		
@@ -49,7 +49,7 @@ public class BowlingGameTest extends TestCase {
 	}
 	
 	public void testIsValid0() {
-		BowlingGame bowlingGame = new BowlingGame("[1,5][2,8][6,2][10,0][1,5][4,1][6,3][10,0][1,5][4,1][8,2][10]");
+		BowlingGame bowlingGame = new BowlingGame("[1,5][2,8][6,2][10,0][1,5][4,1][6,3][10,0][1,5][8,2][10]");
 		assertTrue("The Format is valid , because it after spare in last frame and a bonus which is Strike , there is no more throw", bowlingGame.isValid());
 	}
 	
@@ -63,11 +63,11 @@ public class BowlingGameTest extends TestCase {
 		assertTrue("The Format is valid, because in the last frame Strike happend and the player has two bonus throw ", bowlingGame.isValid());
 	}
 	public void testIsValid3() {
-		BowlingGame bowlingGame = new BowlingGame("[5,5][2,8][6,4][10,0][5,5][9,1][7,3][10,0][1,5][10,0]");
+		BowlingGame bowlingGame = new BowlingGame("[5,5][2,8][6,4][10,0][5,5][9,1][7,3][10,0][1,5][10,0][5,2]");
 		assertTrue("The Format is valid, because multiple Spares can happen  ", bowlingGame.isValid());
 	}
 	public void testIsValid4() {
-		BowlingGame bowlingGame = new BowlingGame("[10,0][10,0][10,0][10,0][10,0][10,0][10,0][10,0][10,0][10]");
+		BowlingGame bowlingGame = new BowlingGame("[10,0][10,0][10,0][10,0][10,0][10,0][10,0][10,0][10,0][10,0][10,10]");
 		assertTrue("The Format is valid, because the maximum score is 300  ", bowlingGame.isValid());
 	}
 	
