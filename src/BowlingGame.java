@@ -5,6 +5,9 @@
  * @date 2016-11-24
  */
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class BowlingGame {
 	/** BowlingGame Score calculator constructor which require string as input 
 	 * @param game Expected format "[n,n][n,n]..[n,n]"
@@ -12,9 +15,8 @@ public class BowlingGame {
 	 */	
 	
 	private String game;
-	public BowlingGame(String game) {
-		
-		//TODO: create constructor for BowlingGame
+	public BowlingGame(String strGame) {
+		game = strGame;
 	}
 	
 	/** getScore method returns a score of current Bowling game or -1 if error
@@ -26,6 +28,11 @@ public class BowlingGame {
 		return(-1);
 	}
 	public boolean isValid() {
+		Pattern p = Pattern.compile("");
+		String stringToParse = new String(game);
+		Matcher patternMatcher = new Matcher(stringToParse);
+		
+		
 		return true;
 	}
 }
