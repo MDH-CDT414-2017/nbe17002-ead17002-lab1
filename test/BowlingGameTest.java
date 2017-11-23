@@ -74,7 +74,7 @@ public class BowlingGameTest extends TestCase {
 	//testing valid scores
 	
 	public void testScoreIsValid0() {
-		BowlingGame bowlingGame = new BowlingGame("[10,0][10,0][10,0][10,0][10,0][10,0][10,0][10,0][10,0][10]");
+		BowlingGame bowlingGame = new BowlingGame("[10,0][10,0][10,0][10,0][10,0][10,0][10,0][10,0][10,0][10,0][10,10]");
 		assertEquals("Score is valid ,the maximum score is 300",300, bowlingGame.getScore());
 	}
 	public void testScoreIsValid1() {
@@ -84,12 +84,12 @@ public class BowlingGameTest extends TestCase {
 	}
 	public void testScoreIsValid2() {
 		BowlingGame bowlingGame = new BowlingGame("[1,9][5,3][7,1][3,1][4,4][5,3][3,3][4,5][8,1][3,4]");
-		assertEquals("Score is valid, it is equal to 74 because we have one spare and count only next ball throw",74, bowlingGame.getScore());
+		assertEquals("Score is valid, it is equal to 82 because we have one spare and count only next ball throw",82, bowlingGame.getScore());
 		
 	}
 	public void testScoreIsValid3() {
 		BowlingGame bowlingGame = new BowlingGame("[10,0][5,5][7,2][3,4][2,1][4,0][0,5][1,1][8,0][1,8]");
-		assertEquals("Score is valid, it is equal to 82, one srtike and one spare",82, bowlingGame.getScore());
+		assertEquals("Score is valid, it is equal to 84, one srtike and one spare",84, bowlingGame.getScore());
 
 	}
 }
