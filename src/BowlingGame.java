@@ -25,7 +25,7 @@ public class BowlingGame {
 		//TODO: calculate the score of game and return correct value
 		return(-1);
 	}
-	public boolean isValid() {
+	public boolean isValid() {		
 		return true;
 	}
 }
