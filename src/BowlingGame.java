@@ -28,9 +28,13 @@ public class BowlingGame {
 		return(-1);
 	}
 	public boolean isValid() {
-		Pattern p = Pattern.compile("");
+		Pattern p = Pattern.compile("(\\[(\\d|10),(\\d|10)\\]){9}(\\[\\d,(\\d|10)\\]\\[(\\d|10)\\]|\\[10,0\\]\\[(\\d|10),(\\d|10)\\]|\\[(\\d|10),(\\d|10)\\])");
 		String stringToParse = new String(game);
-		//Matcher patternMatcher = new Matcher(stringToParse);
-		return true;
+		Matcher patternMatcher = p.matcher(stringToParse);
+		if (patternMatcher.matches()) {
+			//To elaborate, right now it doesn't check the content of the rounds
+			return true;
+		}
+		else return false;
 	}
 }

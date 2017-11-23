@@ -47,7 +47,7 @@ public class BowlingGameTest extends TestCase {
 		//Game finishing with a spare with 2 bonuses
 		assertFalse("Error, a game finishing with a spare should not have 2 bonuses!",bowlingGame.isValid());
 	}
-		
+	
 	public void testIsValid0() {
 		BowlingGame bowlingGame = new BowlingGame("[1,5][2,8][6,2][10,0][1,5][4,1][6,3][10,0][1,5][4,1][8,2][10]");
 		assertTrue("The Format is valid , because it after spare in last frame and a bonus which is Strike , there is no more throw", bowlingGame.isValid());
