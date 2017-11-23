@@ -30,9 +30,7 @@ public class BowlingGame {
 	public boolean isValid() {
 		Pattern p = Pattern.compile("");
 		String stringToParse = new String(game);
-		Matcher patternMatcher = new Matcher(stringToParse);
-		
-		
+		//Matcher patternMatcher = new Matcher(stringToParse);
 		return true;
 	}
 }
