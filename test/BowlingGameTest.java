@@ -70,8 +70,28 @@ public class BowlingGameTest extends TestCase {
 		BowlingGame bowlingGame = new BowlingGame("[10,0][10,0][10,0][10,0][10,0][10,0][10,0][10,0][10,0][10]");
 		assertTrue("The Format is valid, because the maximum score is 300  ", bowlingGame.isValid());
 	}
-	public void testIsValid5() {
+	
+	//testing valid scores
+	
+	public void testScoreIsValid0() {
 		BowlingGame bowlingGame = new BowlingGame("[10,0][10,0][10,0][10,0][10,0][10,0][10,0][10,0][10,0][10]");
-		assertTrue("The Format is valid, because the maximum score is 300  ", bowlingGame.isValid());
+		assertEquals("Score is valid ,the maximum score is 300",300, bowlingGame.getScore());
+	}
+	public void testScoreIsValid1() {
+		BowlingGame bowlingGame = new BowlingGame("[1,5][3,6][7,2][3,6][4,4][5,3][3,3][4,5][8,1][2,6]");
+		assertEquals("Score is valid , score should be equal to 81",81, bowlingGame.getScore());
+		
+	}
+	public void testScoreIsValid2() {
+		BowlingGame bowlingGame = new BowlingGame("[1,9][3]");
+		assertEquals("Score of spare is equal 13",13, bowlingGame.getScore());
+		
+	}
+	public void testScoreIsValid3() {
+		BowlingGame bowlingGame = new BowlingGame("[10,0][4,6],[7,2]");
+		assertEquals("First strike is equal to 20",20, bowlingGame.getScore());
+		assertEquals("second strike is equal to 17",17, bowlingGame.getScore());
+
 	}
 }
+

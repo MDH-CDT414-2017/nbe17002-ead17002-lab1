@@ -24,6 +24,7 @@ public class BowlingGame {
 	 * @return Integer value of Bowling score, in case of error return value is -1 
 	 */
 	public int getScore() {
+		 
 		//TODO: calculate the score of game and return correct value
 		return(-1);
 	}
@@ -32,5 +33,5 @@ public class BowlingGame {
 		String stringToParse = new String(game);
 		//Matcher patternMatcher = new Matcher(stringToParse);
 		return true;
-	}
+	} 
 }
