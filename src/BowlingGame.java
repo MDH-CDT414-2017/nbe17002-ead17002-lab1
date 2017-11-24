@@ -5,6 +5,7 @@
  * @date 2016-11-24
  */
 
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -86,9 +87,33 @@ public class BowlingGame {
 		else return false;
 	}
 	
+	private int calculateScoreFromValidString() {
+		String[] roundsToParse = game.split("\\["); //First string of games is empty
+		ArrayList<BowlingRound> rounds = new ArrayList<BowlingRound>(); 
+		for(int i = 1; i < roundsToParse.length; i++) {
+			String roundToParse = roundsToParse[i].substring(0, roundsToParse[i].length()-1); //Remove the ] at the end of the string
+			rounds.add(new BowlingRound(roundToParse));
+		}
+		int totalScore = 0;
+		for(int i = 0; i < 10; i++) {
+			BowlingRound roundToProcess = rounds.get(i);
+			if (roundToProcess.isStrike()) {
+				 if (rounds.get(i+1).isStrike()) {
+					 totalScore += roundToProcess.getScoreWithoutBonus() + rounds.get(i+1).getThrow1() + rounds.get(i+2).getThrow1();
+				 }
+				 else totalScore += roundToProcess.getScoreWithoutBonus() + rounds.get(i+1).getScoreWithoutBonus();
+			}
+			else if (roundToProcess.isSpare()) {
+				totalScore += roundToProcess.getScoreWithoutBonus() + rounds.get(i+1).getThrow1();
+			}
+			else totalScore += roundToProcess.getScoreWithoutBonus();
+		}
+		return totalScore;
+	}
+	
 	public int getScore() {
 		if (isValid()) {
-			return 300;
+			return calculateScoreFromValidString();
 		}
 		else return(-1);
 	}
