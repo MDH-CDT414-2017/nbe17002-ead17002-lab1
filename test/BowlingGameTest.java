@@ -53,7 +53,9 @@ public class BowlingGameTest extends TestCase {
 		
 		bowlingGame = new BowlingGame("[10,0][10,0][10,0][10,0][10,0][10,0][10,0][10,0][10,0][10,0][42,10]");
 		assertFalse("Error, the final throws are invalid",bowlingGame.isValid());
-
+		
+		bowlingGame = new BowlingGame("[10,0][10,0][10,0][10,0][10,0][10,0][10,0][10,0][10,0][10,0][10,0]");
+		assertTrue(bowlingGame.isValid());
 	}
 	
 	public void testIsValid0() {
@@ -101,6 +103,10 @@ public class BowlingGameTest extends TestCase {
 	public void testGetScore() {
 		BowlingGame bowlingGame = new BowlingGame("[5,3][2,1][3,2][8,1][4,2][5,5][3,1][7,1][4,5][10,0][2,8]");
 		assertEquals("The score should be equal to 85",85,bowlingGame.getScore());
+		
+		bowlingGame = new BowlingGame("[10,0][10,0][10,0][10,0][10,0][10,0][10,0][10,0][10,0][10,0][10,0]");
+		//To get a out of bound
+		assertEquals("The score should be 290",290,bowlingGame.getScore());
 	}
 }
 

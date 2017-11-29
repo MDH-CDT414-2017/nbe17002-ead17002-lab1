@@ -98,7 +98,7 @@ public class BowlingGame {
 		for(int i = 0; i < 10; i++) {
 			BowlingRound roundToProcess = rounds.get(i);
 			if (roundToProcess.isStrike()) {
-				 if (rounds.get(i+1).isStrike()) { //If the round after is a strike, we should not take the second throw into account which is 0
+				 if (rounds.get(i+1).isStrike() && i != 9) { //If the round after is a strike, we should not take the second throw into account which is 0 unless it is the final round
 					 totalScore += roundToProcess.getScoreWithoutBonus() + rounds.get(i+1).getThrow1() + rounds.get(i+2).getThrow1();
 				 }
 				 else totalScore += roundToProcess.getScoreWithoutBonus() + rounds.get(i+1).getScoreWithoutBonus();
