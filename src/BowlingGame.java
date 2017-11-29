@@ -34,18 +34,18 @@ public class BowlingGame {
 			if (aGame.length() == 0 && gamesParsed == 0) { //To eliminate first empty string
 				continue;
 			}
-			aGame = aGame.substring(0, aGame.length()-1);
+			aGame = aGame.substring(0, aGame.length()-1); //To remove the "]" at the end
 			if (gamesParsed == 10) {
 				if (isFinalGameSpare) {
 					try {
-						Integer.parseInt(aGame);
+						Integer.parseInt(aGame); //Try to see if the final game is a single throw
 						return true;
 					}
 					catch (NumberFormatException e) {
 						return false;
 					}
 				}
-				if (isFinalGameStrike) {
+				if (isFinalGameStrike) { //No need to check the content of the strike, it has been catched by the pattern matching
 					return true;
 				}
 			}
@@ -66,7 +66,7 @@ public class BowlingGame {
 					return false;
 				}
 			}
-			if (valueRound > 10 /*|| (isFinalGameStrike && gamesParsed == 10 && valueRound > 20)*/) {
+			if (valueRound > 10) {
 				return false;
 			}
 			gamesParsed++;
@@ -98,7 +98,7 @@ public class BowlingGame {
 		for(int i = 0; i < 10; i++) {
 			BowlingRound roundToProcess = rounds.get(i);
 			if (roundToProcess.isStrike()) {
-				 if (rounds.get(i+1).isStrike()) {
+				 if (rounds.get(i+1).isStrike()) { //If the round after is a strike, we should not take the second throw into account which is 0
 					 totalScore += roundToProcess.getScoreWithoutBonus() + rounds.get(i+1).getThrow1() + rounds.get(i+2).getThrow1();
 				 }
 				 else totalScore += roundToProcess.getScoreWithoutBonus() + rounds.get(i+1).getScoreWithoutBonus();
