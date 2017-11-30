@@ -37,13 +37,8 @@ public class BowlingGame {
 			aGame = aGame.substring(0, aGame.length()-1); //To remove the "]" at the end
 			if (gamesParsed == 10) {
 				if (isFinalGameSpare) {
-					try {
-						Integer.parseInt(aGame); //Try to see if the final game is a single throw
-						return true;
-					}
-					catch (NumberFormatException e) {
-						return false;
-					}
+					Integer.parseInt(aGame); //Try to see if the final game is a single throw
+					return true;
 				}
 				if (isFinalGameStrike) { //No need to check the content of the strike, it has been catched by the pattern matching
 					return true;
@@ -53,17 +48,12 @@ public class BowlingGame {
 			if (throwsList.length != 2) return false;
 			int valueRound = 0;
 			for(String aThrow : throwsList) {
-				try {
-					if (valueRound == 0 && Integer.parseInt(aThrow) == 10 && gamesParsed == 9) {
-						isFinalGameStrike = true;
-					}
-					valueRound += Integer.parseInt(aThrow);
-					if (!(isFinalGameStrike) && gamesParsed == 9 && valueRound == 10) {
-						isFinalGameSpare = true;
-					}
+				if (valueRound == 0 && Integer.parseInt(aThrow) == 10 && gamesParsed == 9) {
+					isFinalGameStrike = true;
 				}
-				catch(NumberFormatException e) {
-					return false;
+				valueRound += Integer.parseInt(aThrow);
+				if (!(isFinalGameStrike) && gamesParsed == 9 && valueRound == 10) {
+					isFinalGameSpare = true;
 				}
 			}
 			if (valueRound > 10) {
