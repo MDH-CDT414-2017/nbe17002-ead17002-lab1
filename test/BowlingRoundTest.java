@@ -9,6 +9,10 @@ public class BowlingRoundTest extends TestCase {
 		round = new BowlingRound("2");
 		assertEquals("The first throw musr be equal to 2!",2,round.getThrow1());
 		assertEquals("The second throw must be equal to -1!",-1,round.getThrow2());
+		
+		round = new BowlingRound("3,0");
+		assertEquals("The first throw musr be equal to 3!",3,round.getThrow1());
+		assertEquals("The second throw must be equal to 0!",0,round.getThrow2());
 	}
 	
 	public void testGetScoreWithoutBonus() {

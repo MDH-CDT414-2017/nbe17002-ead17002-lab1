@@ -102,6 +102,7 @@ public class BowlingGame {
 	}
 	
 	public int getScore() {
+		if (game == null) return -1;
 		if (isValid()) {
 			return calculateScoreFromValidString();
 		}
